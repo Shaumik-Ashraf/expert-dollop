@@ -32,7 +32,7 @@ jobs:
           wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.1.251/quarto-1.1.251-linux-amd64.deb
           sudo apt-get install ./quarto-1.1.251-linux-amd64.deb
           echo Running Quarto Build
-          quarto render $GITHUB_WORKSPACE --execute $GITHUB_WORKSPACE --site-url https://shaumik-ashraf.github.io/expert-dollop
+          quarto render $GITHUB_WORKSPACE --output-dir $GITHUB_WORKSPACE/_site --site-url https://shaumik-ashraf.github.io/expert-dollop
           echo Done
 
   deploy:
