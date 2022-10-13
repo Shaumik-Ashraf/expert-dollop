@@ -29,7 +29,8 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo Starting Quarto Install
-          apt-get download https://github.com/quarto-dev/quarto-cli/releases/download/v1.1.251/quarto-1.1.251-linux-amd64.deb
+          wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.1.251/quarto-1.1.251-linux-amd64.deb
+          apt install ./quarto-1.1.251-linux-amd64.deb
           echo Running Quarto Build
           quarto render $GITHUB_WORKSPACE
           echo Done
