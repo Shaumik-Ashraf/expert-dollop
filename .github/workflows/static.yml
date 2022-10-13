@@ -4,7 +4,14 @@ name: Quarto-CD
 
 on:
   # Runs on pushes targeting the default branch
-  push:
+  # push:
+  #   branches: ["main"]
+
+  # Trigger after Quarto-CI (build.yml)
+  workflow_run:
+    workflows: ["Quarto-CI"]
+    type: ["completed"]
+    on: ["push"]
     branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -36,7 +43,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          # Upload entire repository
+          # Upload '_site/'
           path: '_site'
       - name: Deploy to GitHub Pages
         id: deployment
